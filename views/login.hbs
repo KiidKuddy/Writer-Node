@@ -1,0 +1,96 @@
+<!-- Breadcrumbs Area Start -->
+<div class="breadcrumbs-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumbs">
+                    <h2>LOGIN/REGISTER</h2> 
+                    <ul class="breadcrumbs-list">
+                        <li>
+                            <a title="Return to Home" href="/">Home</a>
+                        </li>
+                        <li>Login</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+<!-- Breadcrumbs Area End -->
+
+<!-- Loging Area Start -->
+<div class="login-account section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <form action="/register" class="create-account-form" method="post">
+                    <h2 class="heading-title">
+                        CREATE AN ACCOUNT
+                    </h2>
+                    <p class="required">
+                        *Required field
+                    </p>
+                    <p class="form-row" style="{{#if invalidEmailMessage }} margin-bottom: 0; {{/if}}">
+                        <input class="{{#if invalidEmailMessage }} invalid-input {{/if}}" type="email" placeholder="Email address *" name="email" autocomplete="off">
+                    </p>
+                    {{#if invalidEmailMessage }}
+                        <div class="invalid-feedback">
+                            Invalid email address
+                        </div>
+                    {{/if}}
+                    <p class="form-row" style="{{#if invalidPasswordMessage }} margin-bottom: 0; {{/if}}">
+                        <input class="{{#if invalidPasswordMessage }} invalid-input {{/if}}" type="password" placeholder="Password *" name="password">
+                    </p>
+                    {{#if invalidPasswordMessage }}
+                        <div class="invalid-feedback">
+                            Password must have 8 characters minimum
+                        </div>
+                    {{/if}}
+                    <p class="form-row" style="{{#if passwordsDontMatchMessage }} margin-bottom: 0; {{/if}}">
+                        <input class="{{#if passwordsDontMatchMessage }} invalid-input {{/if}}" type="password" placeholder="Confirm password *" name="confirmPassword">
+                    </p>
+                    {{#if passwordsDontMathMessage }}
+                        <div class="invalid-feedback">
+                            Passwords don´t match
+                        </div>
+                    {{/if}}
+                    <div class="submit">
+                        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                        <button name="submitcreate" id="submitcreate" type="submit" class="btn-default">
+                            <span>
+                                <i class="fa fa-user left"></i>
+                                Create account
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <form action="/login", class="create-account-form" method="post">
+                    <h2 class="heading-title">
+                        ALREADY RESIGTERED?
+                    </h2>
+                    <p class="form-row">
+                        <input type="email" placeholder="Email address" name="email">
+                    </p>
+                    <p class="form-row">
+                        <input type="password" placeholder="Password" name="password">
+                    </p>
+                    <p class="lost-password form-group">
+                        <a href="#" rel="nofollow">Forgot your password?</a>
+                    </p> 
+                    <div class="submit">
+                        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                        <button name="submitcreate" id="submitcreate" type="submit" class="btn-default">
+                            <span>
+                                <i class="fa fa-user left"></i>
+                                Login
+                            </span>
+                        </button>
+                    </div>                          
+                </form>
+            </div>
+        </div>               
+    </div>
+</div>
+<!-- Loging Area End -->
